@@ -46,10 +46,11 @@ Histogram for ES_score
 
 ![plot of chunk unnamed-chunk-3](presentation-yelp-es-figure/unnamed-chunk-3-1.png) 
 
-We can see clearly that the reviews which have the attribute live music set to true have much higher *ES_score*. 
+- Reviews which have the attribute live music set to true have much higher *ES_score*. 
+- Businesses marked as "live music" despite low score are mis-classified (Author's claim)
 
 Discussion
 ========================================================
 - ElasticSearch text analysis can be used to score the businesses (high score = high likelihood to have live music)
 - Yelp's own mechanism of classifying the attribute seems to be inconsistent
-- Recommendation to 
+- Recommendation to Yelp: review whether current mechanism of setting "live music" attribute yields best results, or can be improved by using ES text analysis

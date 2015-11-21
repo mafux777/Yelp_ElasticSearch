@@ -55,10 +55,11 @@ p = ggplot(data=plot_data, aes(x=ES_score, fill=attributes.Music.live)) + geom_h
 p
 ```
 
-We can see clearly that the reviews which have the attribute live music set to true have much higher *ES_score*. 
+- Reviews which have the attribute live music set to true have much higher *ES_score*. 
+- Businesses marked as "live music" despite low score are mis-classified (Author's claim)
 
 Discussion
 ========================================================
 - ElasticSearch text analysis can be used to score the businesses (high score = high likelihood to have live music)
 - Yelp's own mechanism of classifying the attribute seems to be inconsistent
-- Recommendation to 
+- Recommendation to Yelp: review whether current mechanism of setting "live music" attribute yields best results, or can be improved by using ES text analysis
