@@ -26,34 +26,25 @@ Methods
 
 Results
 ========================================================
-```{r, echo=FALSE, results='markup'}
-#source('~/Dropbox/Coursera/Data Science Yelp Challenge/Review.R')
-#source('~/Dropbox/Coursera/Data Science Yelp Challenge/Business.R')
-#source('~/Dropbox/Coursera/Data Science Yelp Challenge/elastic.R')
-B=read.csv(file="~/Dropbox/Coursera/Data Science Yelp Challenge/biz.csv")
 
-```
 Compare and contrast the attribute settings to the statistical parameters Max, Mean of the *ES_score*. 
 
 ```
 biz_with_ES_score[,list(N=.N, max=max(ES_score), mean=mean(ES_score)), by=attributes.Music.live]
 ```
-```{r, echo=FALSE, results='markup'}
-library(data.table)
-B=data.table(read.csv(file="~/Dropbox/Coursera/Data Science Yelp Challenge/biz.csv"))
-B[,list(N, max, mean)]
+
+```
+       N       max        mean
+1: 58464 0.5941232 0.001046862
+2:  1907 0.3043548 0.003886252
+3:   813 0.5734039 0.044372846
 ```
 Note how the mean of the ES_score for "T" is roughly 10 times higher than for businesses with Live Music=F.  
 
 Histogram for ES_score
 ========================================================
 
-```{r, echo=FALSE}
-library(ggplot2); library(data.table)
-plot_data = data.table(read.csv(file="~/Dropbox/Coursera/Data Science Yelp Challenge/plot_data.csv"))
-p = ggplot(data=plot_data, aes(x=ES_score, fill=attributes.Music.live)) + geom_histogram(binwidth=.01)
-p
-```
+![plot of chunk unnamed-chunk-3](presentation-yelp-es-figure/unnamed-chunk-3-1.png) 
 
 We can see clearly that the reviews which have the attribute live music set to true have much higher *ES_score*. 
 
